@@ -1,13 +1,20 @@
 import { NavLink } from "react-router-dom";
 
-function NavBarDescriptions() {
+function NavBarDescriptions( {enneagram} ) {
+
+// console.log(enneagram)
+
+// useEffect(()=>{
+
+// })
+    
     return (
         <nav id="descriptionNav">
-            <NavLink exact to="/about"> About </NavLink>
-            <NavLink to="/strengths"> Strengths </NavLink>
-            <NavLink to="/weaknesses"> Weaknesses </NavLink>
-            <NavLink to="/practices"> Helpful Practices </NavLink>
-            <NavLink to="/health"> Health Levels </NavLink>
+            <NavLink className="enlarge" exact to={ `${enneagram}/about` }> About </NavLink>
+            <NavLink className="enlarge" to={ `${enneagram}/strengths` }> Strengths </NavLink>
+            <NavLink className="enlarge" to={ `${enneagram}/weaknesses` }> Weaknesses </NavLink>
+            <NavLink className="enlarge" to={ `${enneagram}/practices` }> Helpful Practices </NavLink>
+            <NavLink className="enlarge" to={ `${enneagram}/health` }> Health Levels </NavLink>
         </nav>
     );
 }

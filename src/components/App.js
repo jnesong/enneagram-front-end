@@ -1,18 +1,18 @@
 import { Switch, Route } from "react-router";
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
+// import { useState, useEffect } from 'react';
 import Home from "./Home";
 import Info from "./Info";
 
 function App() {
-  const { enneagramNumber } = useParams();
-
 
   return (
     <div>
       <Switch>
 
         <Route path="/:enneagramNumber">
-          <Info/>
+          <Info
+          />
         </Route>
 
         <Route exact path="/">

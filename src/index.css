@@ -10,6 +10,52 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+  font-size: 20px;
+  background-image: linear-gradient(to left, rgb(75, 113, 92), rgb(61, 106, 82), rgb(52, 92, 71), rgb(36, 74, 54), rgb(23, 57, 39), rgb(7, 36, 21), rgb(1, 16, 8));   
+  -webkit-background-clip: text;
+  color: transparent;
+  line-height: 35px;
+  letter-spacing: 2px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 40px;
+}
+
+ul {
+  list-style-type: none;
+  line-height: 35px;
+  letter-spacing: 2px;
+  font-size: 20px;
+  background-image: linear-gradient(to left, rgb(75, 113, 92), rgb(61, 106, 82), rgb(52, 92, 71), rgb(36, 74, 54), rgb(23, 57, 39), rgb(7, 36, 21), rgb(1, 16, 8));   
+  -webkit-background-clip: text;
+  color: transparent;
+  margin: 40px;
+}
+
+li.health {
+  margin: 40px;
+}
+
+h1 {
+  font-size: 120px;
+  color: black;
+}
+
+.title {
+ color: black;
+ margin: 300px;
+ margin-top: 30px;
+ margin-bottom: 30px;
+}
+
+img {
+  display: inline;
+  margin: 40px;
+  height: 150px;
+  width: auto;
+}
+
 
 /* NavBar styling */
 
@@ -20,6 +66,14 @@ nav a {
   font-family: "Optima", sans-serif;
   color: black;
   border-bottom: none;
+}
+
+.enlarge {
+  transition: transform .2s;
+}
+
+.enlarge:hover {
+  transform: scale(1.5); 
 }
 
 nav a:hover,
@@ -34,9 +88,25 @@ nav a.active {
 
 #numberNav {
   font-size: 100px;
-  padding-top: 200px;
+  padding-top: 150px;
 }
 
 #descriptionNav {
   font-size: 25px;
+  letter-spacing: 5px;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+/* miscellaneous styling */
+
+.fade {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
