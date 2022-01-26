@@ -4,7 +4,6 @@ import About from "./About"
 import Descriptions from "./Descriptions";
 import Practices from "./Practices"
 import Health from "./Health";
-// import plant from './gifs/plant.gif';
 import { useState, useEffect } from 'react';
 import { useParams, Switch, Route } from 'react-router-dom';
 
@@ -12,21 +11,32 @@ function Info( ) {
 
     const[numberPage, setNumberPage] = useState("");
     const [descriptionPage, setDescriptionPage] = useState("/");
+    const [error, setError] = useState(null);
+    const baseURL = "http://localhost:3000";
+
     const { enneagramNumber } = useParams();
     const [enneagram, setEnneagram] = useState({});
-    const baseURL = "http://localhost:3000";
+    let fetchPath = baseURL + "/enneagrams" + `/${enneagramNumber}`
+
     let strengthPath = `/${enneagram.number}` + "/strengths"
     let weaknessPath = `/${enneagram.number}` + "/weaknesses"
     let practicePath = `/${enneagram.number}` + "/practices"
     let healthPath = `/${enneagram.number}` + "/healths"
 
+
     useEffect(() => {
-      fetch(baseURL + "/enneagrams" + `/${enneagramNumber}`)
+        const abortCont = new AbortController();
+
+      fetch(fetchPath, { signal: abortCont.signal})
         .then(r => r.json())
         .then(data => setEnneagram(data))
+        .catch(err => {
+            if (err.name === 'AbortError') {
+                console.log('fetch aborted');
+            } else {setError(err.message)}
+;        })
+        return () => abortCont.abort()
     }, [enneagramNumber]);  
-
-    // console.log(enneagram)
 
     return (
         <div>

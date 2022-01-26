@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router";
 // import { useState, useEffect } from 'react';
 import Home from "./Home";
 import Info from "./Info";
+import Journal from "./user/Journal";
 
 function App() {
 
@@ -10,16 +11,21 @@ function App() {
     <div>
       <Switch>
 
+        <Route path="/journal">
+          <Journal />
+        </Route>
+
         <Route path="/:enneagramNumber">
           <Info
           />
         </Route>
 
+
         <Route exact path="/">
-          <Home/>
+          <Home />
         </Route>
 
-        <Route path = "*">
+        <Route path="*">
           <h1> 404 not found 🥲 </h1>
         </Route>
 
