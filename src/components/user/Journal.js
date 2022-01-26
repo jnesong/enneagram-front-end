@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import Logout from './Logout';
+import History from './History';
+import plant from '../gifs/plant.gif'
 
 function Journal() {
   const baseURL = "http://localhost:3000";
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const [error, setError] = useState(null);
   const [journalData, setJournalData] = useState({
     date: "",
@@ -14,11 +16,11 @@ function Journal() {
 
   useEffect(() => {
     fetch(baseURL + "/auth")
-    .then((response) => {
-      if (response.ok) {
-        response.json().then((user) => setUser(user));
-      }
-    });
+      .then((response) => {
+        if (response.ok) {
+          response.json().then((user) => setUser(user));
+        }
+      });
   }, []);
 
   console.log(user)
@@ -120,12 +122,25 @@ function Journal() {
 
       </form>
 
-      <Logout 
-      baseURL = {baseURL}
+      {<br />}
+      {<br />}
+
+      <Logout
+        baseURL={baseURL}
       />
+      {<br />}
+      {<br />}
+      <img src={plant} alt="plant gif" />
+      {<br />}
+      {<br />}
+  
 
     </div>
   );
 }
 
 export default Journal;
+
+{/* <History
+baseURL={baseURL}
+/> */}
