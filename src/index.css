@@ -22,6 +22,18 @@ p {
   margin-bottom: 40px;
 }
 
+p.past {
+  font-size: 16px;
+  background-image: linear-gradient(to left, rgb(75, 113, 92), rgb(61, 106, 82), rgb(52, 92, 71), rgb(36, 74, 54), rgb(23, 57, 39), rgb(7, 36, 21), rgb(1, 16, 8));   
+  -webkit-background-clip: text;
+  color: transparent;
+  line-height: 35px;
+  letter-spacing: 2px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 40px;
+}
+
 #credit {
   font-size: 15px;
   color: rgb(7, 36, 21);
@@ -103,6 +115,12 @@ nav a.active {
   padding-bottom: 50px;
 }
 
+#editNav{
+  font-size: 16px;
+  letter-spacing: 5px;
+  display: inline-block;
+}
+
 /* Login Form styling */
 
 .login {
@@ -180,6 +198,46 @@ input[type=date] {
   font-family: "Optima", sans-serif;
   height: 40px;
   padding: 10px;
+}
+
+/* delete button */
+
+.buttonDelete {
+  text-align: center;
+  font-family: "Optima", sans-serif;
+  border: none;
+  background-color:transparent;
+  color: rgb(7, 36, 21);
+  font-size: 16px;
+  display: inline-block;
+  transition-duration: 0.4s;
+  margin-right: auto;
+  margin-left: auto;
+  letter-spacing: 5px;
+}
+.buttonDelete:hover {
+  background-color:white;
+  color: rgb(166, 186, 178);
+}
+
+
+/* logout button */
+.buttonLogout {
+  text-align: center;
+  font-family: "Optima", sans-serif;
+  border: none;
+  background-color:transparent;
+  color: rgb(7, 36, 21);
+  padding: 40px;
+  font-size: 20px;
+  display: block;
+  transition-duration: 0.4s;
+  margin-right: 100px;
+  margin-left: auto;
+}
+.buttonLogout:hover {
+  background-color:white;
+  color: rgb(166, 186, 178);
 }
 
 /* miscellaneous animation styling */

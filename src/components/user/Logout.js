@@ -7,7 +7,7 @@ function Logout( {baseURL} ) {
   
     return (
       <header>
-        <button className="buttonSubmit" onClick={handleLogout}>logout</button>
+        <button className="buttonLogout" onClick={handleLogout}>logout</button>
       </header>
     );
   }

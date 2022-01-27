@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PastEntry from "./PastEntry";
 
 function History({ baseURL }) {
 
@@ -12,29 +13,18 @@ function History({ baseURL }) {
             .then(data => setJournalHistory(data))
     };
 
-    function handleEdit ( clickedJourney ) {
-        console.log("edit was clicked")
-        const updatedJournalHistory = journalHistory.map(journey => {
-            if (journey.id === clickedJourney.id) {
-                return {...journalHistory, clickedJourney}
-            } else {
-                return journalHistory
-            }
-        })
+    function holdDeletedID(id){
+        const updatedJournalHistory = journalHistory.filter(journey => journey.id !== id)
         setJournalHistory(updatedJournalHistory)
     }
 
-    console.log(journalHistory);
-
-    const listJournalHistory = journalHistory.map(journey => {
-        return (
-        <div key={journey.id}>
-            <p> {journey.date} -  enneagram: {journey.enneagram} level: {journey.level} </p>
-            <p> {journey.entry} </p>
-            <button className="buttonSubmit" onClick={handleEdit}> edit </button>
-        </div>
-        )
-    })
+    const listJournalHistory = journalHistory.map(journey => (
+        <PastEntry
+            key={journey.id} 
+            journey = {journey}
+            holdDeletedID = {holdDeletedID}
+        />
+    ))
 
     return (
 

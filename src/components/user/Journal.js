@@ -21,6 +21,7 @@ function Journal() {
           response.json().then((user) => setUser(user));
         }
       });
+    fetch(baseURL + "/journeys")
   }, []);
 
   console.log(user)
@@ -56,6 +57,13 @@ function Journal() {
     <div>
       {<br />}
       {<br />}
+
+      <Logout
+        baseURL={baseURL}
+      />
+      {<br />}
+      {<br />}
+
       <p> journal </p>
 
       <form onSubmit={handleSubmit} className="fade" >
@@ -124,23 +132,17 @@ function Journal() {
 
       {<br />}
       {<br />}
-
-      <Logout
-        baseURL={baseURL}
-      />
-      {<br />}
-      {<br />}
       <img src={plant} alt="plant gif" />
       {<br />}
       {<br />}
-  
+
+      <History
+        baseURL={baseURL}
+      />
+
 
     </div>
   );
 }
 
 export default Journal;
-
-{/* <History
-baseURL={baseURL}
-/> */}
