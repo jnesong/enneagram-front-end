@@ -34,11 +34,6 @@ p.past {
   margin-bottom: 40px;
 }
 
-#credit {
-  font-size: 15px;
-  color: rgb(7, 36, 21);
-}
-
 ul {
   list-style-type: none;
   line-height: 35px;
@@ -59,13 +54,6 @@ h1 {
   color: black;
 }
 
-.title {
- color: black;
- margin: 300px;
- margin-top: 30px;
- margin-bottom: 30px;
-}
-
 img {
   display: inline;
   margin: 40px;
@@ -75,6 +63,9 @@ img {
 
 
 /* NavBar styling */
+/* NavBar styling */
+/* NavBar styling */
+
 
 nav a {
   display: inline-block;
@@ -122,6 +113,8 @@ nav a.active {
 }
 
 /* Login Form styling */
+/* Login Form styling */
+/* Login Form styling */
 
 .login {
   font-size: 25px;
@@ -144,7 +137,8 @@ input[type=password] {
   /* border-bottom: 2px solid black; */
   font-size: 20px;
   font-family: "Optima", sans-serif;
-  text-align:center
+  text-align:center;
+  background-color: transparent
 }
 
 input[type=text]:focus,
@@ -178,12 +172,16 @@ input[type=password]:focus {
   color: rgb(166, 186, 178);
 }
 
-/*journal entry styling*/
+/*Journal Entry Styling*/
+/*Journal Entry Styling*/
+/*Journal Entry Styling*/
+
 .input-entry {
   width: 90%;
   height: 300px;
   padding: 10px;
-  margin: 50px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: white;
   text-align: left;
   font-family: "Optima", sans-serif;
@@ -200,7 +198,7 @@ input[type=date] {
   padding: 10px;
 }
 
-/* delete button */
+/* Delete Button */
 
 .buttonDelete {
   text-align: center;
@@ -221,7 +219,8 @@ input[type=date] {
 }
 
 
-/* logout button */
+/* Logout Button */
+
 .buttonLogout {
   text-align: center;
   font-family: "Optima", sans-serif;
@@ -240,7 +239,34 @@ input[type=date] {
   color: rgb(166, 186, 178);
 }
 
-/* miscellaneous animation styling */
+/* Edit Journey Styling  */
+
+.editor {
+  background-color:rgb(225, 237, 233);
+  padding: 40px;
+  border-radius: 20px;
+}
+.buttonSaveEdit {
+  text-align: center;
+  font-family: "Optima", sans-serif;
+  border: none;
+  background-color:transparent;
+  color: rgb(7, 36, 21);
+  padding: 40px;
+  font-size: 20px;
+  display: block;
+  transition-duration: 0.4s;
+  margin-left: auto;
+  margin-right: auto;
+}
+.buttonSaveEdit:hover {
+  background-color:(225, 237, 233);
+  color: white
+}
+
+/* Miscellaneous Styling */
+/* Miscellaneous Styling */
+/* Miscellaneous Styling */
 
 .fade {
   animation: fadeInAnimation ease 3s;
@@ -252,3 +278,15 @@ input[type=date] {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
+
+#credit {
+  font-size: 15px;
+  color: rgb(7, 36, 21);
+}
+
+.title {
+  color: black;
+  margin: 300px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+ }

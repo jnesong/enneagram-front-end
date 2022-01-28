@@ -1,45 +1,17 @@
 import { useState, useEffect } from 'react';
-import Logout from './Logout';
-import History from './History';
-import plant from '../gifs/plant.gif';
 
-function EditEntry({currentUser}) {
+function EditEntry( {journey, holdEdit} ) {
 
   const baseURL = "http://localhost:3000";
   // const [user, setUser] = useState({});
   const [error, setError] = useState(null);
   const [journalData, setJournalData] = useState({
-    date: "",
-    enneagram: null | Number,
-    level: null | Number,
-    entry: ""
+    date: journey.date,
+    enneagram: journey.enneagram,
+    level: journey.level,
+    entry: journey.entry
   });
-  const [journalHistory, setJournalHistory] = useState([]);
 
-  useEffect(fetchData, [baseURL]);
-
-  function fetchData() {
-      fetch(baseURL + `/journeys`)
-          .then(r => r.json())
-          .then(data => setJournalHistory(data))
-  };
-
-     function holdDeletedID(id){
-        const updatedJournalHistory = journalHistory.filter(journey => journey.id !== id)
-        setJournalHistory(updatedJournalHistory)
-    }
-
-  // useEffect(() => {
-  //   fetch(baseURL + "/auth")
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         response.json().then((user) => setUser(user));
-  //       }
-  //     });
-  //   fetch(baseURL + "/journeys")
-  // }, []);
-
-  // console.log(user)
 
   const handleChange = (e) => {
     setJournalData({
@@ -51,14 +23,14 @@ function EditEntry({currentUser}) {
   function handleSubmit(e) {
     e.preventDefault()
 
-    fetch(baseURL + `/journeys`, {
-      method: "POST",
+    fetch(baseURL + `/journeys/${journey.id}`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(journalData),
     }).then(r => r.json())
-      .then(data => setJournalHistory([...journalHistory, data]))
+      .then(editedJourney => holdEdit(editedJourney))
       .catch(err => {
         if (err.name === 'AbortError') {
           console.log('fetch aborted');
@@ -67,15 +39,7 @@ function EditEntry({currentUser}) {
   };
 
   return (
-    <div>
-      {<br />}
-      {<br />}
-
-      <Logout
-        baseURL={baseURL}
-      />
-      {<br />}
-      {<br />}
+    <div className="editor">
 
       <p> edit past entry </p>
 
@@ -87,6 +51,7 @@ function EditEntry({currentUser}) {
           <input
             type="date"
             name="date"
+            defaultValue={journey.date}
             value={journalData.date}
             onChange={handleChange}
             onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
@@ -100,7 +65,7 @@ function EditEntry({currentUser}) {
               }
             }}
             type="text"
-            placeholder="enneagram"
+            defaultValue={journey.enneagram}
             name="enneagram"
             value={journalData.enneagram}
             onChange={handleChange}
@@ -114,7 +79,7 @@ function EditEntry({currentUser}) {
               }
             }}
             type="text"
-            placeholder="health level"
+            defaultValue={journey.level}
             name="level"
             value={journalData.level}
             onChange={handleChange}
@@ -128,32 +93,20 @@ function EditEntry({currentUser}) {
           <textarea
             className="input-entry"
             type="text"
-            placeholder="enter reflections"
+            defaultValue={journey.entry}
             name="entry"
             value={journalData.entry}
             onChange={handleChange}
             onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
           />
 
-          <button className="buttonSubmit" type="submit"> save edit </button>
+          <button className="buttonSaveEdit" type="submit"> save edit </button>
 
 
         </div>
 
 
       </form>
-
-      {<br />}
-      {<br />}
-      <img src={plant} alt="plant gif" />
-      {<br />}
-      {<br />}
-
-      <History
-        journalHistory={journalHistory}
-        holdDeletedID={holdDeletedID}
-      />
-
 
     </div>
   );

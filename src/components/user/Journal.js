@@ -3,7 +3,7 @@ import Logout from './Logout';
 import History from './History';
 import plant from '../gifs/plant.gif';
 
-function Journal({currentUser, holdEditedID}) {
+function Journal( {currentUser} ) {
 
   const baseURL = "http://localhost:3000";
   // const [user, setUser] = useState({});
@@ -28,6 +28,18 @@ function Journal({currentUser, holdEditedID}) {
         const updatedJournalHistory = journalHistory.filter(journey => journey.id !== id)
         setJournalHistory(updatedJournalHistory)
     }
+
+    function holdEdit(editedJourney){
+      console.log(editedJourney)
+      const updatedJournalHistory = journalHistory.map(journey => {
+        if (journey.id === editedJourney.id) {
+          return editedJourney
+        } else {
+          return journey
+        }
+    })
+    setJournalHistory(updatedJournalHistory)
+  }
 
   // useEffect(() => {
   //   fetch(baseURL + "/auth")
@@ -74,6 +86,7 @@ function Journal({currentUser, holdEditedID}) {
       <Logout
         baseURL={baseURL}
       />
+      
       {<br />}
       {<br />}
 
@@ -152,7 +165,7 @@ function Journal({currentUser, holdEditedID}) {
       <History
         journalHistory={journalHistory}
         holdDeletedID={holdDeletedID}
-        holdEditedID={holdEditedID}
+        holdEdit={holdEdit}
       />
 
 

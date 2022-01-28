@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PastEntry from "./PastEntry";
 
-function History({ journalHistory, holdDeletedID, holdEditedID }) {
+function History({ journalHistory, holdDeletedID, holdEdit }) {
 
     // const [journalHistory, setJournalHistory] = useState([]);
 
@@ -18,12 +18,12 @@ function History({ journalHistory, holdDeletedID, holdEditedID }) {
     //     setJournalHistory(updatedJournalHistory)
     // }
 
-    const listJournalHistory = journalHistory.map(journey => (
+    const listJournalHistory = journalHistory.reverse().map(journey => (
         <PastEntry
             key={journey.id} 
             journey = {journey}
             holdDeletedID = {holdDeletedID}
-            holdEditedID = {holdEditedID}
+            holdEdit={holdEdit}
         />
     ))
 

@@ -26,12 +26,6 @@ function App() {
           />
         </Route>
 
-        <Route path="/editor">
-          <EditEntry
-          currentUser={currentUser}
-          />
-        </Route>
-
         <Route path="/:enneagramNumber">
           <Info
           />
