@@ -32,7 +32,7 @@ function Login({ holdUser, baseURL }) {
             if (response.ok) {
                 response.json().then((user) => setUser(user));
                 setButtonDisplay("✔ login confirmed, thank you!");
-                setTimeout(() => {history.push("/journal")}, 2000);
+                setTimeout(() => {history.push("/journal")}, 1000);
             } else {
                 response.json().then((errors) => {
                     console.error(errors);

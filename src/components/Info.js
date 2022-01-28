@@ -6,7 +6,7 @@ import Practices from "./Practices"
 import Health from "./Health";
 import LogOn from "./user/LogOn";
 import { useState, useEffect } from 'react';
-import { useParams, Switch, Route } from 'react-router-dom';
+import { useParams, Switch, Route, useHistory } from 'react-router-dom';
 
 function Info( ) {
 
@@ -24,6 +24,8 @@ function Info( ) {
     let practicePath = `/${enneagram.number}` + "/practices"
     let healthPath = `/${enneagram.number}` + "/healths"
 
+    const history = useHistory();
+
 
     useEffect(() => {
         const abortCont = new AbortController();
@@ -38,6 +40,10 @@ function Info( ) {
 ;        })
         return () => abortCont.abort()
     }, [enneagramNumber]);  
+
+    function handleEmojiClick () {
+       history.push("/")
+    }
 
     return (
         <div>
@@ -86,18 +92,7 @@ function Info( ) {
 
                 </Switch>
 
-            <h1> {enneagram.emoji} </h1>
-
-            {<br />}
-            {<br />}
-            {<br />}
-            {<br />}
-           
-            <LogOn />
-
-            {<br />}
-            {<br />}
-            {<br />}
+            <h1 onClick = {handleEmojiClick}> {enneagram.emoji} </h1>
 
 
         </div>

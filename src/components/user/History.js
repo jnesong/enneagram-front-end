@@ -18,7 +18,7 @@ function History({ journalHistory, holdDeletedID, holdEdit }) {
     //     setJournalHistory(updatedJournalHistory)
     // }
 
-    const listJournalHistory = journalHistory.reverse().map(journey => (
+    const listJournalHistory = journalHistory.map(journey => (
         <PastEntry
             key={journey.id} 
             journey = {journey}
