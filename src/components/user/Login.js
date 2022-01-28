@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function Login({ baseURL }) {
+function Login({ holdUser, baseURL }) {
     const [error, setError] = useState(null);
     const [user, setUser] = useState(null);
     const [buttonDisplay, setButtonDisplay] = useState("login");
@@ -44,6 +44,7 @@ function Login({ baseURL }) {
     };
 
     console.log(user)
+    holdUser(user)
 
     return (
         <div className="login">

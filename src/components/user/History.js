@@ -1,28 +1,29 @@
 import React, { useEffect, useState } from "react";
 import PastEntry from "./PastEntry";
 
-function History({ baseURL }) {
+function History({ journalHistory, holdDeletedID, holdEditedID }) {
 
-    const [journalHistory, setJournalHistory] = useState([]);
+    // const [journalHistory, setJournalHistory] = useState([]);
 
-    useEffect(fetchData, [baseURL]);
+    // useEffect(fetchData, [baseURL]);
 
-    function fetchData() {
-        fetch(baseURL + "/journeys")
-            .then(r => r.json())
-            .then(data => setJournalHistory(data))
-    };
+    // function fetchData() {
+    //     fetch(baseURL + "/journeys")
+    //         .then(r => r.json())
+    //         .then(data => setJournalHistory(data))
+    // };
 
-    function holdDeletedID(id){
-        const updatedJournalHistory = journalHistory.filter(journey => journey.id !== id)
-        setJournalHistory(updatedJournalHistory)
-    }
+    // function holdDeletedID(id){
+    //     const updatedJournalHistory = journalHistory.filter(journey => journey.id !== id)
+    //     setJournalHistory(updatedJournalHistory)
+    // }
 
     const listJournalHistory = journalHistory.map(journey => (
         <PastEntry
             key={journey.id} 
             journey = {journey}
             holdDeletedID = {holdDeletedID}
+            holdEditedID = {holdEditedID}
         />
     ))
 

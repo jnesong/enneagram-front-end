@@ -3,7 +3,7 @@ import Logout from './Logout';
 import History from './History';
 import plant from '../gifs/plant.gif';
 
-function Journal({currentUser, holdEditedID}) {
+function EditEntry({currentUser}) {
 
   const baseURL = "http://localhost:3000";
   // const [user, setUser] = useState({});
@@ -77,7 +77,7 @@ function Journal({currentUser, holdEditedID}) {
       {<br />}
       {<br />}
 
-      <p> journal </p>
+      <p> edit past entry </p>
 
       <form onSubmit={handleSubmit} className="fade" >
 
@@ -135,7 +135,7 @@ function Journal({currentUser, holdEditedID}) {
             onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
           />
 
-          <button className="buttonSubmit" type="submit"> save </button>
+          <button className="buttonSubmit" type="submit"> save edit </button>
 
 
         </div>
@@ -152,7 +152,6 @@ function Journal({currentUser, holdEditedID}) {
       <History
         journalHistory={journalHistory}
         holdDeletedID={holdDeletedID}
-        holdEditedID={holdEditedID}
       />
 
 
@@ -160,4 +159,4 @@ function Journal({currentUser, holdEditedID}) {
   );
 }
 
-export default Journal;
+export default EditEntry;

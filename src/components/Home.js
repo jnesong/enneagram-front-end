@@ -3,7 +3,7 @@ import LogOn from "./user/LogOn";
 import plant2 from "./gifs/plant2.gif";
 import { useState } from 'react';
 
-function Home() {
+function Home({holdUser}) {
 
     const [numberPage, setNumberPage] = useState("/");
 
@@ -29,7 +29,9 @@ function Home() {
             {<br />}
             {<br />}
            
-            <LogOn />
+            <LogOn 
+            holdUser={holdUser}
+            />
 
             {<br />}
             {<br />}

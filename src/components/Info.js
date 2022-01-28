@@ -4,6 +4,7 @@ import About from "./About"
 import Descriptions from "./Descriptions";
 import Practices from "./Practices"
 import Health from "./Health";
+import LogOn from "./user/LogOn";
 import { useState, useEffect } from 'react';
 import { useParams, Switch, Route } from 'react-router-dom';
 
@@ -86,6 +87,17 @@ function Info( ) {
                 </Switch>
 
             <h1> {enneagram.emoji} </h1>
+
+            {<br />}
+            {<br />}
+            {<br />}
+            {<br />}
+           
+            <LogOn />
+
+            {<br />}
+            {<br />}
+            {<br />}
 
 
         </div>

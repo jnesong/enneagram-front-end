@@ -1,14 +1,15 @@
 import Login from './Login';
 import Signup from './Signup';
 
-function LogOn() {
+function LogOn( {holdUser} ) {
 
     const baseURL = "http://localhost:3000";
 
     return (
         <div>
             <Login 
-            baseURL={baseURL} 
+            baseURL={baseURL}
+            holdUser={holdUser}
             />
             {<br />}
             {<br />}
